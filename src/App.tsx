@@ -274,28 +274,28 @@ export default function App() {
   return (
     <div className="min-h-screen bg-carai-bg text-white flex flex-col font-sans">
       {/* Header */}
-      <header className="border-b border-carai-border bg-carai-panel px-6 py-4 flex items-center justify-between gap-4">
-        <div className="flex items-center gap-4">
+      <header className="border-b border-carai-border bg-carai-panel px-4 py-2 grid grid-cols-3 items-center gap-2 md:flex md:justify-between md:gap-4 md:px-6 md:py-4">
+        <div className="col-span-1 flex items-center gap-2 min-w-0">
           <div className="relative flex h-3 w-3">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-carai-green opacity-75"></span>
             <span className="relative inline-flex rounded-full h-3 w-3 bg-carai-green"></span>
           </div>
-          <h1 className="text-xl font-mono tracking-widest font-bold text-gray-200">
+          <h1 className="text-[10px] md:text-xl font-mono tracking-widest font-bold text-gray-200 whitespace-nowrap">
             CARAI OS <span className="text-carai-green opacity-70">//</span> CONTROL PLANE
           </h1>
         </div>
 
-        <div className="flex-1 min-w-0 flex justify-center items-center w-full">
-          <div className="w-full max-w-xs rounded-3xl border border-carai-border/70 bg-carai-panel/80 p-4 flex justify-center items-center shadow-[0_0_30px_rgba(16,185,129,0.15)]">
+        <div className="col-span-1 flex justify-center items-center w-full">
+          <div className="w-full max-w-[4.5rem] rounded-3xl border border-carai-border/70 bg-carai-panel/80 p-3 flex justify-center items-center shadow-[0_0_30px_rgba(16,185,129,0.15)] md:max-w-xs md:p-4">
             <Shield
-              className="text-carai-green transition-all duration-500 animate-pulse scale-125 md:scale-150 w-16 h-16 md:w-20 md:h-20"
+              className="text-carai-green transition-all duration-500 animate-pulse scale-110 md:scale-150 w-12 h-12 md:w-20 md:h-20"
               aria-label="Security Shield"
             />
           </div>
         </div>
 
-        <div className="flex items-center gap-6 flex-shrink-0">
-          <button 
+        <div className="col-span-1 flex items-center justify-end gap-2 min-w-0 md:gap-4">
+          <button
             onClick={() => setIsThemeModalOpen(true)}
             className="text-gray-500 hover:text-carai-green transition-colors"
             title="Theme Settings"
@@ -303,8 +303,8 @@ export default function App() {
             <Settings className="w-5 h-5" />
           </button>
           <div className="flex items-center gap-2">
-            <span className="text-xs font-mono text-gray-500 uppercase tracking-wider">Safety Toggle</span>
-            <button 
+            <span className="hidden md:block text-xs font-mono text-gray-500 uppercase tracking-wider">Safety Toggle</span>
+            <button
               onClick={() => setIsArmed(!isArmed)}
               className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none ${isArmed ? 'bg-red-500/20 border border-red-500/50' : 'bg-carai-border border border-gray-600'}`}
             >
@@ -312,7 +312,7 @@ export default function App() {
             </button>
             {isArmed ? <ShieldAlert className="w-4 h-4 text-red-500" /> : <Shield className="w-4 h-4 text-gray-500" />}
           </div>
-          <div className="font-mono text-xs text-carai-green border border-carai-green/30 bg-carai-green/10 px-3 py-1 rounded">
+          <div className="hidden md:inline-flex font-mono text-xs text-carai-green border border-carai-green/30 bg-carai-green/10 px-3 py-1 rounded">
             SYS.ID: CARAI-SYS-01
           </div>
           {CARAI_AUTH_TOKEN && (
