@@ -274,7 +274,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-carai-bg text-white flex flex-col font-sans">
       {/* Header */}
-      <header className="border-b border-carai-border bg-carai-panel px-6 py-4 flex items-center justify-between">
+      <header className="border-b border-carai-border bg-carai-panel px-6 py-4 flex items-center justify-between gap-4">
         <div className="flex items-center gap-4">
           <div className="relative flex h-3 w-3">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-carai-green opacity-75"></span>
@@ -284,7 +284,17 @@ export default function App() {
             CARAI OS <span className="text-carai-green opacity-70">//</span> CONTROL PLANE
           </h1>
         </div>
-        <div className="flex items-center gap-6">
+
+        <div className="flex-1 min-w-0 flex justify-center items-center w-full">
+          <div className="w-full max-w-xs rounded-3xl border border-carai-border/70 bg-carai-panel/80 p-4 flex justify-center items-center shadow-[0_0_30px_rgba(16,185,129,0.15)]">
+            <Shield
+              className="text-carai-green transition-all duration-500 animate-pulse scale-125 md:scale-150 w-16 h-16 md:w-20 md:h-20"
+              aria-label="Security Shield"
+            />
+          </div>
+        </div>
+
+        <div className="flex items-center gap-6 flex-shrink-0">
           <button 
             onClick={() => setIsThemeModalOpen(true)}
             className="text-gray-500 hover:text-carai-green transition-colors"
